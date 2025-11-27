@@ -10,8 +10,202 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Nunito", Arial, sans-serif;
+      color: #fff;
+      background: url("https://www.teahub.io/photos/full/236-2362896_best-maplestory-wallpaper-id-maplestory-horntail.jpg")
+        no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.65);
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+      backdrop-filter: blur(4px);
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin: 0 0 25px;
+      text-shadow: 2px 2px 8px #000;
+      color: #ffd75e;
+      font-family: "Press Start 2P", system-ui, sans-serif;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.82);
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(250, 204, 21, 0.4);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.6), 0 12px 28px rgba(0,0,0,0.75);
+      transition: 0.2s;
+      box-sizing: border-box;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(250, 204, 21, 0.9);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.7), 0 16px 38px rgba(0,0,0,0.9);
+    }
+
+    label {
+      font-weight: 700;
+      margin-top: 10px;
+      display: block;
+      text-shadow: 1px 1px 3px #000;
+      font-size: 14px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 5px;
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus {
+      border-color: #facc15;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.7), 0 0 0 1px rgba(250,204,21,0.8);
+      outline: none;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 800;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #f97316, #facc15);
+      color: #111827;
+      font-family: "Press Start 2P", system-ui, sans-serif;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.6);
+      transition: 0.15s;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button:hover {
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.75);
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 14px;
+      background: radial-gradient(circle at top left, rgba(250,204,21,0.18), rgba(15,23,42,0.9));
+      border-radius: 10px;
+      border: 1px solid rgba(148,163,184,0.7);
+      white-space: pre-line;
+      font-size: 14px;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media(max-width: 800px) {
+      .two-col { grid-template-columns: 1fr; }
+      body { background-attachment: scroll; }
+      .overlay { padding: 24px 12px 60px; }
+      h1 { font-size: 24px; }
+      .card { padding: 16px; }
+      button { font-size: 13px; }
+      .result { font-size: 13px; }
+    }
+
+    .class-icons-label {
+      margin-top: 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ffe680;
+      text-shadow: 2px 2px 5px #000;
+      font-weight: bold;
+    }
+
+    .class-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .class-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(30,30,45,0.9);
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.75);
+      transition: 0.15s;
+    }
+
+    .class-icon:hover {
+      background: rgba(75,85,200,0.9);
+      border-color: #facc15;
+      transform: translateY(-2px);
+    }
+
+    .icon-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      background: radial-gradient(circle, #ffdd55, #b8860b);
+      color: #111;
+      font-family: "Press Start 2P", system-ui, sans-serif;
+    }
+
+    .label-text {
+      color: #fff;
+      font-weight: 800;
+      text-shadow: 2px 2px 6px #000;
+      font-size: 13px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      width: 100%;
+      text-align: center;
+      font-family: "Great Vibes", cursive;
+      font-size: 32px;
+      color: #ffe9c4;
+      text-shadow: 2px 2px 10px #000;
+      opacity: 0.95;
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,7 +214,7 @@
 
     <h1>HP Washing Calculator</h1>
 
-    <!-- MIN MP -->
+    <!-- MIN MP CALCULATOR -->
     <div class="card">
       <h2>Minimum MP</h2>
       <div class="two-col">
@@ -39,25 +233,25 @@
           <div class="class-icons-label">Quick select</div>
           <div class="class-icons" data-select="minClass">
             <button class="class-icon" data-class="Beginner">
-              <span class="icon-circle"></span><span class="label-text">Beginner</span>
+              <span class="icon-circle">B</span><span class="label-text">Beginner</span>
             </button>
             <button class="class-icon" data-class="Spearman">
-              <span class="icon-circle"></span><span class="label-text">Spearman</span>
+              <span class="icon-circle">S</span><span class="label-text">Spearman</span>
             </button>
             <button class="class-icon" data-class="Fighter">
-              <span class="icon-circle"></span><span class="label-text">Fighter</span>
+              <span class="icon-circle">F</span><span class="label-text">Fighter</span>
             </button>
             <button class="class-icon" data-class="Bowman">
-              <span class="icon-circle"></span><span class="label-text">Bowman</span>
+              <span class="icon-circle">B</span><span class="label-text">Bowman</span>
             </button>
             <button class="class-icon" data-class="Thief">
-              <span class="icon-circle"></span><span class="label-text">Thief</span>
+              <span class="icon-circle">T</span><span class="label-text">Thief</span>
             </button>
             <button class="class-icon" data-class="Corsair">
-              <span class="icon-circle"></span><span class="label-text">Corsair</span>
+              <span class="icon-circle">C</span><span class="label-text">Corsair</span>
             </button>
             <button class="class-icon" data-class="Buccaneer">
-              <span class="icon-circle"></span><span class="label-text">Buccaneer</span>
+              <span class="icon-circle">B</span><span class="label-text">Buccaneer</span>
             </button>
           </div>
         </div>
@@ -90,22 +284,22 @@
           <div class="class-icons-label">Quick select</div>
           <div class="class-icons" data-select="washClass">
             <button class="class-icon" data-class="Beginner">
-              <span class="icon-circle"></span><span class="label-text">Beginner</span>
+              <span class="icon-circle">B</span><span class="label-text">Beginner</span>
             </button>
             <button class="class-icon" data-class="Warrior">
-              <span class="icon-circle"></span><span class="label-text">Warrior</span>
+              <span class="icon-circle">W</span><span class="label-text">Warrior</span>
             </button>
             <button class="class-icon" data-class="Thief">
-              <span class="icon-circle"></span><span class="label-text">Thief</span>
+              <span class="icon-circle">T</span><span class="label-text">Thief</span>
             </button>
             <button class="class-icon" data-class="Bowman">
-              <span class="icon-circle"></span><span class="label-text">Bowman</span>
+              <span class="icon-circle">B</span><span class="label-text">Bowman</span>
             </button>
             <button class="class-icon" data-class="Corsair">
-              <span class="icon-circle"></span><span class="label-text">Corsair</span>
+              <span class="icon-circle">C</span><span class="label-text">Corsair</span>
             </button>
             <button class="class-icon" data-class="Buccaneer">
-              <span class="icon-circle"></span><span class="label-text">Buccaneer</span>
+              <span class="icon-circle">B</span><span class="label-text">Buccaneer</span>
             </button>
           </div>
         </div>
@@ -135,7 +329,136 @@
 <audio id="soundSuccess" src="https://files.catbox.moe/uwf7zd.mp3" preload="auto"></audio>
 <audio id="soundError" src="https://files.catbox.moe/1xwq37.mp3" preload="auto"></audio>
 
-<!-- Scripts -->
-<script src="script.js"></script>
+<script>
+  // ==== MIN MP FORMULAS ====
+  // Beginner = 10 * level + 2
+  // Spearman = 4 * level + 156
+  // Fighter  = 4 * level + 56
+  // Bowman   = 14 * level + 148
+  // Thief    = 14 * level + 148
+  // Corsair  = 18 * level + 111  (Pirate base)
+  // Buccaneer= 18 * level + 111  (Pirate base)
+  function getMinMpForClass(cls, lvl) {
+    lvl = Number(lvl);
+    const table = {
+      Beginner: 10 * lvl + 2,
+      Spearman: 4 * lvl + 156,
+      Fighter:  4 * lvl + 56,
+      Bowman:   14 * lvl + 148,
+      Thief:    14 * lvl + 148,
+      Corsair:  18 * lvl + 111,
+      Buccaneer:18 * lvl + 111
+    };
+    return table[cls];
+  }
+
+  // ==== WASH RATES ====
+  // Beginner:  +8~12 HP,  -8 MP
+  // Warrior:   +50~54 HP, -4 MP
+  // Thief:     +20~24 HP, -12 MP
+  // Bowman:    +16~20 HP, -12 MP
+  // Corsair:   +16~20 HP, -16 MP
+  // Buccaneer: +36~40 HP, -16 MP
+  function getWashRate(cls) {
+    const table = {
+      Beginner:  { hpMin: 8,  hpMax: 12, mpPerWash: 8 },
+      Warrior:   { hpMin: 50, hpMax: 54, mpPerWash: 4 },
+      Thief:     { hpMin: 20, hpMax: 24, mpPerWash: 12 },
+      Bowman:    { hpMin: 16, hpMax: 20, mpPerWash: 12 },
+      Corsair:   { hpMin: 16, hpMax: 20, mpPerWash: 16 },
+      Buccaneer: { hpMin: 36, hpMax: 40, mpPerWash: 16 }
+    };
+    return table[cls];
+  }
+
+  // Quick-select buttons → set dropdown value
+  document.querySelectorAll(".class-icons").forEach(group => {
+    const select = document.getElementById(group.dataset.select);
+    group.querySelectorAll(".class-icon").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const cls = btn.dataset.class;
+        if (select) select.value = cls;
+      });
+    });
+  });
+
+  // Min MP calc
+  const minBtn = document.getElementById("calcMinMpBtn");
+  const minResult = document.getElementById("minMpResult");
+
+  minBtn.addEventListener("click", () => {
+    const cls = document.getElementById("minClass").value;
+    const lvl = document.getElementById("minLevel").value || 1;
+    const minMp = getMinMpForClass(cls, lvl);
+
+    if (minMp == null) {
+      minResult.textContent = "No minimum MP formula defined for this class.";
+      return;
+    }
+
+    minResult.textContent = `${cls} (Lv ${lvl}) → Min MP: ${minMp}`;
+  });
+
+  // Wash calc
+  const washBtn = document.getElementById("calcWashBtn");
+  const washResult = document.getElementById("washResult");
+  const soundSuccess = document.getElementById("soundSuccess");
+  const soundError = document.getElementById("soundError");
+
+  washBtn.addEventListener("click", () => {
+    const cls = document.getElementById("washClass").value;
+    const lvl = Number(document.getElementById("washLevel").value || 1);
+    const currentMp = Number(document.getElementById("washCurrentMp").value || 0);
+    const goalVal = document.getElementById("washTargetExtraHp").value;
+    const goalHp = goalVal === "" ? null : Number(goalVal);
+
+    const rate = getWashRate(cls);
+    if (!rate) {
+      washResult.textContent = "No wash rate defined for this class.";
+      if (soundError) soundError.play();
+      return;
+    }
+
+    // Warrior uses Spearman minimum MP baseline
+    const minKey = cls === "Warrior" ? "Spearman" : cls;
+    const minMp = getMinMpForClass(minKey, lvl);
+
+    if (minMp == null) {
+      washResult.textContent = "No minimum MP formula available for this class.";
+      if (soundError) soundError.play();
+      return;
+    }
+
+    if (currentMp < minMp) {
+      washResult.textContent = "Not enough MP to wash safely!";
+      if (soundError) soundError.play();
+      return;
+    }
+
+    const washableMp = Math.max(0, currentMp - minMp);
+    const washes = Math.floor(washableMp / rate.mpPerWash);
+
+    if (soundSuccess) soundSuccess.play();
+
+    let text = `${cls} (Lv ${lvl})\n`;
+    text += `Current MP: ${currentMp}\n`;
+    text += `Min safe MP: ${minMp}\n`;
+    text += `Washable MP: ${washableMp}\n`;
+    text += `MP per wash: ${rate.mpPerWash}\n`;
+    text += `Max washes: ${washes}\n`;
+    text += `Estimated HP gain: ${washes * rate.hpMin} ~ ${washes * rate.hpMax}`;
+
+    if (goalHp && goalHp > 0) {
+      const best = Math.ceil(goalHp / rate.hpMax);
+      const worst = Math.ceil(goalHp / rate.hpMin);
+      text += `\n\nHP Goal: ${goalHp}`;
+      text += `\nWashes needed: ${best} ~ ${worst}`;
+    }
+
+    washResult.textContent = text;
+  });
+</script>
+
 </body>
 </html>
+
