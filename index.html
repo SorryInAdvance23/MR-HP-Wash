@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HP Washing Calculator</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="overlay">
+  <div class="container">
+
+    <h1>HP Washing Calculator</h1>
+
+    <!-- MIN MP -->
+    <div class="card">
+      <h2>Minimum MP</h2>
+      <div class="two-col">
+        <div>
+          <label>Class</label>
+          <select id="minClass">
+            <option>Beginner</option>
+            <option>Spearman</option>
+            <option>Fighter</option>
+            <option>Bowman</option>
+            <option>Thief</option>
+            <option>Corsair</option>
+            <option>Buccaneer</option>
+          </select>
+
+          <div class="class-icons-label">Quick select</div>
+          <div class="class-icons" data-select="minClass">
+            <button class="class-icon" data-class="Beginner">
+              <span class="icon-circle"></span><span class="label-text">Beginner</span>
+            </button>
+            <button class="class-icon" data-class="Spearman">
+              <span class="icon-circle"></span><span class="label-text">Spearman</span>
+            </button>
+            <button class="class-icon" data-class="Fighter">
+              <span class="icon-circle"></span><span class="label-text">Fighter</span>
+            </button>
+            <button class="class-icon" data-class="Bowman">
+              <span class="icon-circle"></span><span class="label-text">Bowman</span>
+            </button>
+            <button class="class-icon" data-class="Thief">
+              <span class="icon-circle"></span><span class="label-text">Thief</span>
+            </button>
+            <button class="class-icon" data-class="Corsair">
+              <span class="icon-circle"></span><span class="label-text">Corsair</span>
+            </button>
+            <button class="class-icon" data-class="Buccaneer">
+              <span class="icon-circle"></span><span class="label-text">Buccaneer</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label>Level</label>
+          <input type="number" id="minLevel" min="1" value="1">
+        </div>
+      </div>
+
+      <button id="calcMinMpBtn">Calculate</button>
+      <div id="minMpResult" class="result"></div>
+    </div>
+
+    <!-- WASH PLANNER -->
+    <div class="card">
+      <h2>Wash Planner</h2>
+      <div class="two-col">
+        <div>
+          <label>Class</label>
+          <select id="washClass">
+            <option>Beginner</option>
+            <option>Warrior</option>
+            <option>Thief</option>
+            <option>Bowman</option>
+            <option>Corsair</option>
+            <option>Buccaneer</option>
+          </select>
+
+          <div class="class-icons-label">Quick select</div>
+          <div class="class-icons" data-select="washClass">
+            <button class="class-icon" data-class="Beginner">
+              <span class="icon-circle"></span><span class="label-text">Beginner</span>
+            </button>
+            <button class="class-icon" data-class="Warrior">
+              <span class="icon-circle"></span><span class="label-text">Warrior</span>
+            </button>
+            <button class="class-icon" data-class="Thief">
+              <span class="icon-circle"></span><span class="label-text">Thief</span>
+            </button>
+            <button class="class-icon" data-class="Bowman">
+              <span class="icon-circle"></span><span class="label-text">Bowman</span>
+            </button>
+            <button class="class-icon" data-class="Corsair">
+              <span class="icon-circle"></span><span class="label-text">Corsair</span>
+            </button>
+            <button class="class-icon" data-class="Buccaneer">
+              <span class="icon-circle"></span><span class="label-text">Buccaneer</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label>Level</label>
+          <input type="number" id="washLevel" value="1">
+
+          <label style="margin-top:12px;">Current MP</label>
+          <input type="number" id="washCurrentMp">
+
+          <label style="margin-top:12px;">HP GOAL (Optional)</label>
+          <input type="number" id="washTargetExtraHp" placeholder="Leave blank for max washes">
+        </div>
+      </div>
+
+      <button id="calcWashBtn">Calculate Washes</button>
+      <div id="washResult" class="result"></div>
+    </div>
+
+    <div class="footer">Built by DrWorm | Prosper</div>
+
+  </div>
+</div>
+
+<!-- SOUND EFFECTS -->
+<audio id="soundSuccess" src="https://files.catbox.moe/uwf7zd.mp3" preload="auto"></audio>
+<audio id="soundError" src="https://files.catbox.moe/1xwq37.mp3" preload="auto"></audio>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+</body>
+</html>
